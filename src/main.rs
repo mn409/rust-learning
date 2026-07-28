@@ -97,22 +97,30 @@
 //     }
 // }
 
+use core::num;
 use std::io::stdin;
 
+use UserInput::Number;
 
-
-
-fn main() {
-    match get_input() {
-        UserInput::Number(n) => println!("You entered: {}", n),
-        UserInput::Exit => println!("Exiting..."),
-    }
-}
 
 enum UserInput {
         Number(i32),
         Exit,
     }
+
+fn main() {
+    let mut sum = 0;
+    loop {
+        match get_input() {
+            UserInput::Number(n) => {
+                sum += n;
+                println!("added to the club");
+            }
+            UserInput::Exit => break,
+        }
+    }
+    println!("sum {}", sum);
+}
 
 fn get_input() -> UserInput {
 
@@ -126,7 +134,7 @@ fn get_input() -> UserInput {
             return UserInput::Exit;
         }
 
-        match input.trim().parse::<i32>(){
+        match input.parse::<i32>(){
             Ok(num) => return UserInput::Number(num),
             Err(_) => {
                 println!("Invaliddddddd");
