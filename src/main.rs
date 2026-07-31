@@ -242,122 +242,137 @@
 //     InsufficientFunds,
 // }
 
+// use std::io::stdin;
+
+// fn main() {
+//     let mut account = Bank {
+//         name: "User".to_string(),
+//         account_id: "12345".to_string(),
+//         balance: 500.0,
+//     };
+
+//     loop {
+//         println!("\nChoose action: deposit / withdraw / balance / exit");
+
+//         let mut action = String::new();
+//         stdin().read_line(&mut action).unwrap();
+//         let action = action.trim();
+
+//         match action {
+//             "deposit" => {
+//                 let amount = get_amount();
+//                 let result = account.deposit(amount);
+//                 handle_result(result);
+//             }
+
+//             "withdraw" => {
+//                 let amount = get_amount();
+//                 let result = account.withdraw(amount);
+//                 handle_result(result);
+//             }
+
+//             "balance" => {
+//                 println!("Current balance: {}", account.balance);
+//             }
+
+//             "exit" => {
+//                 println!("Exiting...");
+//                 break;
+//             }
+
+//             _ => {
+//                 println!("Invalid choice. Try again.");
+//             }
+//         }
+//     }
+// }
+
+
+// fn get_amount() -> f64 {
+//     loop {
+//         println!("Enter amount:");
+
+//         let mut input = String::new();
+//         stdin().read_line(&mut input).unwrap();
+
+//         match input.trim().parse::<f64>() {
+//             Ok(num) => return num,
+//             Err(_) => println!("Invalid number, try again"),
+//         }
+//     }
+// }
+
+// fn handle_result(result: TransactionResult) {
+//     match result {
+//         TransactionResult::Success { new_balance, amount } => {
+//             println!("Success! Amount: {}, New Balance: {}", amount, new_balance);
+//         }
+//         TransactionResult::Failure(reason) => match reason {
+//             FailureReason::InvalidAmount => println!("Amount must be > 0"),
+//             FailureReason::InsufficientFunds => println!("Not enough balance"),
+//         },
+//     }
+// }
+
+
+// struct Bank {
+//     name: String,
+//     account_id: String,
+//     balance: f64,
+// }
+
+// impl Bank {
+//     fn deposit(&mut self, amount: f64) -> TransactionResult {
+//         if amount <= 0.0 {
+//             return TransactionResult::Failure(FailureReason::InvalidAmount);
+//         }
+
+//         self.balance += amount;
+
+//         TransactionResult::Success {
+//             new_balance: self.balance,
+//             amount,
+//         }
+//     }
+
+//     fn withdraw(&mut self, amount: f64) -> TransactionResult {
+//         if amount <= 0.0 {
+//             return TransactionResult::Failure(FailureReason::InvalidAmount);
+//         }
+
+//         if self.balance < amount {
+//             return TransactionResult::Failure(FailureReason::InsufficientFunds);
+//         }
+
+//         self.balance -= amount;
+
+//         TransactionResult::Success {
+//             new_balance: self.balance,
+//             amount,
+//         }
+//     }
+// }
+// enum TransactionResult {
+//     Success { new_balance: f64, amount: f64 },
+//     Failure(FailureReason),
+// }
+
+// enum FailureReason {
+//     InvalidAmount,
+//     InsufficientFunds,
+// }
+
 use std::io::stdin;
 
+
 fn main() {
-    let mut account = Bank {
-        name: "User".to_string(),
-        account_id: "12345".to_string(),
-        balance: 500.0,
+    loop {
+        println!("\nChoose action: deposit");
+
+         let mut action = String::new();
+         stdin().read_line(&mut action).unwrap();
+         let action = action.trim();
+
+         println!("You typed: {}", action);
     };
-
-    loop {
-        println!("\nChoose action: deposit / withdraw / balance / exit");
-
-        let mut action = String::new();
-        stdin().read_line(&mut action).unwrap();
-        let action = action.trim();
-
-        match action {
-            "deposit" => {
-                let amount = get_amount();
-                let result = account.deposit(amount);
-                handle_result(result);
-            }
-
-            "withdraw" => {
-                let amount = get_amount();
-                let result = account.withdraw(amount);
-                handle_result(result);
-            }
-
-            "balance" => {
-                println!("Current balance: {}", account.balance);
-            }
-
-            "exit" => {
-                println!("Exiting...");
-                break;
-            }
-
-            _ => {
-                println!("Invalid choice. Try again.");
-            }
-        }
-    }
-}
-
-
-fn get_amount() -> f64 {
-    loop {
-        println!("Enter amount:");
-
-        let mut input = String::new();
-        stdin().read_line(&mut input).unwrap();
-
-        match input.trim().parse::<f64>() {
-            Ok(num) => return num,
-            Err(_) => println!("Invalid number, try again"),
-        }
-    }
-}
-
-fn handle_result(result: TransactionResult) {
-    match result {
-        TransactionResult::Success { new_balance, amount } => {
-            println!("Success! Amount: {}, New Balance: {}", amount, new_balance);
-        }
-        TransactionResult::Failure(reason) => match reason {
-            FailureReason::InvalidAmount => println!("Amount must be > 0"),
-            FailureReason::InsufficientFunds => println!("Not enough balance"),
-        },
-    }
-}
-
-
-struct Bank {
-    name: String,
-    account_id: String,
-    balance: f64,
-}
-
-impl Bank {
-    fn deposit(&mut self, amount: f64) -> TransactionResult {
-        if amount <= 0.0 {
-            return TransactionResult::Failure(FailureReason::InvalidAmount);
-        }
-
-        self.balance += amount;
-
-        TransactionResult::Success {
-            new_balance: self.balance,
-            amount,
-        }
-    }
-
-    fn withdraw(&mut self, amount: f64) -> TransactionResult {
-        if amount <= 0.0 {
-            return TransactionResult::Failure(FailureReason::InvalidAmount);
-        }
-
-        if self.balance < amount {
-            return TransactionResult::Failure(FailureReason::InsufficientFunds);
-        }
-
-        self.balance -= amount;
-
-        TransactionResult::Success {
-            new_balance: self.balance,
-            amount,
-        }
-    }
-}
-enum TransactionResult {
-    Success { new_balance: f64, amount: f64 },
-    Failure(FailureReason),
-}
-
-enum FailureReason {
-    InvalidAmount,
-    InsufficientFunds,
 }
