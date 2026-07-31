@@ -362,17 +362,42 @@
 //     InsufficientFunds,
 // }
 
+// use std::io::stdin;
+
+
+// fn main() {
+//     loop {
+//         println!("\nChoose action: deposit");
+
+//          let mut action = String::new();
+//          stdin().read_line(&mut action).unwrap();
+//          let action = action.trim();
+
+//          println!("You typed: {}", action);
+//     };
+// }
+
+use core::num;
 use std::io::stdin;
 
 
+fn check_number(num: i32) -> Option<i32> {
+    if num > 0 {
+        Some(num)
+    } else {
+        None
+    }
+}
+
 fn main() {
-    loop {
-        println!("\nChoose action: deposit");
 
-         let mut action = String::new();
-         stdin().read_line(&mut action).unwrap();
-         let action = action.trim();
+    let mut number = String::new();
+    println!("Enter number");
+    stdin().read_line(&mut number).unwrap();
 
-         println!("You typed: {}", action);
-    };
+    if let Ok(num) = number.trim().parse::<i32>() {
+        println!("Valid: {}", num);
+    } else {
+        println!("Invalid");
+    }
 }
