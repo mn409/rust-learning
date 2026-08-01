@@ -417,13 +417,22 @@
 use std::io::stdin;
 
 fn main() {
+    
     loop {
-        let mut input = String::new();
-    println!("enter number");
+    let mut input = String::new();
+    println!("Enter a number bro:");
+
     stdin().read_line(&mut input).unwrap();
 
-    if let Ok(num) =  input.trim().parse::<i32>() {
-        if let Some(n) =  check_number(num){
+    let input = input.trim();
+
+    if input == "exit" {
+        println!("Exiting...");
+        break;
+    }
+
+    if let Ok(num) = input.parse::<i32>() {
+        if let Some(n) = check_number(num) {
             println!("Valid {}", n);
             break;
         } else {
@@ -432,8 +441,9 @@ fn main() {
     } else {
         println!("Invalid input");
     }
-    }
 }
+}
+
 fn check_number(num: i32) -> Option<i32> {
 
     if num > 0 {
