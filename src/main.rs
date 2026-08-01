@@ -403,14 +403,40 @@
 
 // }
 
-use std::sync::Mutex;
 
+
+// fn main() {
+//     let mut a = String::from("hello ji");
+
+//     let b1 = &a;
+//     println!("{}", b1);
+
+//     let b2 = &mut a;
+// }
+
+use std::io::stdin;
 
 fn main() {
-    let mut a = String::from("hello ji");
 
-    let b1 = &a;
-    println!("{}", b1);
+    let mut input = String::new();
+    println!("enter number");
+    stdin().read_line(&mut input).unwrap();
 
-    let b2 = &mut a;
+    if let Ok(num) =  input.trim().parse::<i32>() {
+        if let Some(n) =  check_number(num){
+            println!("Valid {}", n);
+        } else {
+            println!("Invalid (<= 0)");
+        }
+    } else {
+        println!("Invalid input");
+    }
+}
+fn check_number(num: i32) -> Option<i32> {
+
+    if num > 0 {
+        Some(num)
+    } else {
+        None
+    }
 }
