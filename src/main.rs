@@ -377,28 +377,40 @@
 //     };
 // }
 
-use core::num;
-use std::io::stdin;
+// use core::num;
+// use std::io::stdin;
 
 
-fn check_number(num: i32) -> Option<i32> {
-    if num > 0 {
-        Some(num)
-    } else {
-        None
-    }
-}
+// fn check_number(num: i32) -> Option<i32> {
+//     if num > 0 {
+//         Some(num)
+//     } else {
+//         None
+//     }
+// }
+
+// fn main() {
+
+//     let mut number = String::new();
+//     println!("Enter number");
+//     stdin().read_line(&mut number).unwrap();
+
+//     if let Ok(num) = number.trim().parse::<i32>() {
+//         println!("Valid: {}", num);
+//     } else {
+//         println!("Invalid");
+//     }
+
+// }
+
+use std::sync::Mutex;
+
 
 fn main() {
+    let mut a = String::from("hello ji");
 
-    let mut number = String::new();
-    println!("Enter number");
-    stdin().read_line(&mut number).unwrap();
+    let b1 = &a;
+    println!("{}", b1);
 
-    if let Ok(num) = number.trim().parse::<i32>() {
-        println!("Valid: {}", num);
-    } else {
-        println!("Invalid");
-    }
-    
+    let b2 = &mut a;
 }
