@@ -476,15 +476,94 @@
 //     print_op(r2);
 // }
 
+// fn main() {
+//     let mut s = String::from("hi");
+
+//     let r1 = &s;
+//     let r2 = &s;
+
+//     println!("{}", r1);
+//     println!("{}", r2);
+
+//     let r3 = &mut s;
+
+// }
+
+// struct Book {
+//     title: String,
+//     page_no: u32,
+//     is_read: bool,
+// }
+
+// let my_book = Book {
+//     title: String::from("The hobbit"),
+//     pages: 310,
+//     is_read: bool,
+// }
+
+// println!("{}", my_book.title);
+
+
+// struct Student {
+//     name: String,
+//     age: u32,
+//     grade: char,
+// }
+
+// impl Student {
+//     fn show(&self) {
+//         println!("{}, {}, {}", self.name, self.age, self.grade);
+//     }
+// }
+
+// fn main() {
+
+//     let student = Student {
+        
+//         name: String::from("mohan"),
+//         age: 23,
+//         grade: 'B',
+//     };  
+//     // println!(" {}, {}, {}", student.name, student.age, student.grade);4
+//     student.show();
+// }
+
+
+struct Car {
+    brand: String,
+    speed: u32,
+    is_running: bool,
+}
+
+impl Car {
+    fn show(&self) {
+        println!("{}", self.brand);
+        println!("{}", self.speed);
+        println!("{}", self.is_running);
+    }
+
+    fn start_engine(&mut self) {
+        self.is_running = true;
+    }
+
+    fn new(brand: String, speed: u32) -> Car {
+        is_running = false;
+    }
+}
+
 fn main() {
-    let mut s = String::from("hi");
 
-    let r1 = &s;
-    let r2 = &s;
+    let mut car = Car {
+        brand: String::from("mitsubisi"),
+        speed: 120,
+        is_running: false,
+    };
 
-    println!("{}", r1);
-    println!("{}", r2);
+    car.show();
+    car.start_engine();
+    car.show();
 
-    let r3 = &mut s;
-
+    let car2 = Car::new() {
+        println!("{}", car2)
+    }
 }
