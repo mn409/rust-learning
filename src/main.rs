@@ -529,41 +529,74 @@
 // }
 
 
-struct Car {
-    brand: String,
-    speed: u32,
-    is_running: bool,
-}
+// struct Car {
+//     brand: String,
+//     speed: u32,
+//     is_running: bool,
+// }
 
-impl Car {
-    fn show(&self) {
-        println!("{}", self.brand);
-        println!("{}", self.speed);
-        println!("{}", self.is_running);
-    }
+// impl Car {
+//     fn show(&self) {
+//         println!("{}", self.brand);
+//         println!("{}", self.speed);
+//         println!("{}", self.is_running);
+//     }
 
-    fn start_engine(&mut self) {
-        self.is_running = true;
-    }
+//     fn start_engine(&mut self) {
+//         self.is_running = true;
+//     }
 
-    fn new(brand: String, speed: u32) -> Car {
-        is_running = false;
-    }
+//     fn new(brand: String, speed: u32) -> Car {
+//         is_running = false;
+//     }
+// }
+
+// fn main() {
+
+//     let mut car = Car {
+//         brand: String::from("mitsubisi"),
+//         speed: 120,
+//         is_running: false,
+//     };
+
+//     car.show();
+//     car.start_engine();
+//     car.show();
+
+//     let car2 = Car::new() {
+//         println!("{}", car2)
+//     }
+// }
+
+// enum Weather {
+//     Sunny,
+//     Rainy,
+//     Cloudy(u32),
+// }
+
+// fn main() {
+//     let season = Weather::Cloudy(4);
+
+//     match season {
+//         Weather::Sunny => println!("this is sunnyy: "),
+//         Weather::Rainy => println!("rainnyy"),
+//         Weather::Cloudy(hours) => println!("clouds for {} hours", hours),
+//     };
+// }
+
+
+enum Vehicle {
+    Bike,
+    Car,
+    Truck(u32),
 }
 
 fn main() {
+    let weight = Vehicle::Truck(2000);
 
-    let mut car = Car {
-        brand: String::from("mitsubisi"),
-        speed: 120,
-        is_running: false,
+    match weight {
+        Vehicle::Bike => println!("bike is around 150kg"),
+        Vehicle::Car => println!("car is around 500kg"),
+        Vehicle::Truck(kilo) => println!("truck is around {} kg", kilo),
     };
-
-    car.show();
-    car.start_engine();
-    car.show();
-
-    let car2 = Car::new() {
-        println!("{}", car2)
-    }
 }
