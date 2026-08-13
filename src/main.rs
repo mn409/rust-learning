@@ -585,18 +585,40 @@
 // }
 
 
-enum Vehicle {
-    Bike,
-    Car,
-    Truck(u32),
+// enum Vehicle {
+//     Bike,
+//     Car,
+//     Truck(u32),
+// }
+
+// fn main() {
+//     let weight = Vehicle::Truck(2000);
+
+//     match weight {
+//         Vehicle::Bike => println!("bike is around 150kg"),
+//         Vehicle::Car => println!("car is around 500kg"),
+//         Vehicle::Truck(kilo) => println!("truck is around {} kg", kilo),
+//     };
+// }
+
+trait MakeSound {
+    fn sound(&self) -> String;
+}
+
+struct Dog {
+    name: String,
+}
+
+impl MakeSound for Dog {
+    fn sound(&self) -> String {
+        format!("woof")
+    }
 }
 
 fn main() {
-    let weight = Vehicle::Truck(2000);
-
-    match weight {
-        Vehicle::Bike => println!("bike is around 150kg"),
-        Vehicle::Car => println!("car is around 500kg"),
-        Vehicle::Truck(kilo) => println!("truck is around {} kg", kilo),
+    let dog = Dog {
+        name: String::from("jimmy")
     };
+
+    println!("dog barks like: {}", dog.sound());
 }
