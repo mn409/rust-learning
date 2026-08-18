@@ -711,23 +711,63 @@
 //  LETS START DSA
 
 
+// fn main() {
+//     let arr = [3, 7, 2, 9, 5];
+
+//     let mut max = arr[0];
+
+//     // for i in 0..arr.len() {
+//     //     if arr[i] > max {
+//     //         max = arr[i];
+//     //     }
+//     // }
+//     // println!("{}", max);
+
+//     for &val in &arr {
+//         if val > max {
+//             max = val;
+//         }
+//     }
+
+//     println!("{}", max);
+// }
+
+// use std::{f32::MIN, mem::swap};
+
+
+
+// fn main() {
+//     let arr = [4, 10, 6, 10, 2];
+
+//     let mut max = arr[0];
+
+//     let mut sec_max = i32::MIN;
+
+//     for &val in &arr  {
+//         if val > max {
+//             sec_max = max;
+//             max = val;
+//         } else if val > sec_max && val < max {
+//             sec_max = val;
+//         }
+//     }
+//     println!("{}", sec_max);
+// }
+
 fn main() {
-    let arr = [3, 7, 2, 9, 5];
+    let mut arr = [1, 2, 3, 4, 5];
 
-    let mut max = arr[0];
+    let mut left = 0;
 
-    // for i in 0..arr.len() {
-    //     if arr[i] > max {
-    //         max = arr[i];
-    //     }
-    // }
-    // println!("{}", max);
+    let mut right = arr.len() -1;
 
-    for &val in &arr {
-        if val > max {
-            max = val;
-        }
+    while left < right {
+        arr.swap(left, right);
+
+        left = left + 1;
+        right = right - 1;
     }
 
-    println!("{}", max);
+    println!("{:?}", arr); 
+
 }
