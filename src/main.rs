@@ -1,387 +1,451 @@
-// // use core::num;
-// // use std::io::stdin;
+// // // use core::num;
+// // // use std::io::stdin;
 
-// // fn show_menu() {
-// //     println!("\n------------------------------");
-// //     println!("1. Add numbers");
-// //     println!("2. Square number");
-// //     println!("3. Get age");
-// //     println!("4. Exit");
-// //     println!("------------------------------");
-// // }
-
-// // fn get_choice() -> i32 {
-// //     loop {
-// //         let mut input = String::new();
-// //         println!("Enter your choice (1-4):");
-
-// //         stdin().read_line(&mut input).unwrap();
-
-// //         match input.trim().parse::<i32>() {
-// //             Ok(num) => return num,
-// //             Err(_) => println!("Invalid option, try again"),
-// //         }
-// //     }
-// // }
-
-// // fn get_number(prompt: &str) -> i32 {
-// //     loop {
-// //         let mut input = String::new();
-// //         println!("{}", prompt);
-
-// //         stdin().read_line(&mut input).unwrap();
-
-// //         match input.trim().parse::<i32>() {
-// //             Ok(num) => return num,
-// //             Err(_) => println!("Invalid input, try again"),
-// //         }
-// //     }
-// // }
-
-// // // fn add_numbers() {
-// // //     let a = get_number("Enter first number:");
-// // //     let b = get_number("Enter second number:");
-
-// // //     println!("Result: {}", a + b);
-// // }
-
-// // fn add_numbers(a: i32, b: i32) -> i32 {
-// //     a + b
-// // }
-
-// // fn square_number(num: i32) {
-// //     num * num
-// // }
-// // // fn square_number() {
-// // //     let num = get_number("Enter number to square:");
-// // //     println!("Result: {}", num * num);
+// // // fn show_menu() {
+// // //     println!("\n------------------------------");
+// // //     println!("1. Add numbers");
+// // //     println!("2. Square number");
+// // //     println!("3. Get age");
+// // //     println!("4. Exit");
+// // //     println!("------------------------------");
 // // // }
 
-// // fn get_age() {
-// //     loop {
-// //         let age = get_number("Enter your age (1-120):");
+// // // fn get_choice() -> i32 {
+// // //     loop {
+// // //         let mut input = String::new();
+// // //         println!("Enter your choice (1-4):");
 
-// //         if age >= 1 && age <= 120 {
-// //             println!("Valid age: {}", age);
+// // //         stdin().read_line(&mut input).unwrap();
+
+// // //         match input.trim().parse::<i32>() {
+// // //             Ok(num) => return num,
+// // //             Err(_) => println!("Invalid option, try again"),
+// // //         }
+// // //     }
+// // // }
+
+// // // fn get_number(prompt: &str) -> i32 {
+// // //     loop {
+// // //         let mut input = String::new();
+// // //         println!("{}", prompt);
+
+// // //         stdin().read_line(&mut input).unwrap();
+
+// // //         match input.trim().parse::<i32>() {
+// // //             Ok(num) => return num,
+// // //             Err(_) => println!("Invalid input, try again"),
+// // //         }
+// // //     }
+// // // }
+
+// // // // fn add_numbers() {
+// // // //     let a = get_number("Enter first number:");
+// // // //     let b = get_number("Enter second number:");
+
+// // // //     println!("Result: {}", a + b);
+// // // }
+
+// // // fn add_numbers(a: i32, b: i32) -> i32 {
+// // //     a + b
+// // // }
+
+// // // fn square_number(num: i32) {
+// // //     num * num
+// // // }
+// // // // fn square_number() {
+// // // //     let num = get_number("Enter number to square:");
+// // // //     println!("Result: {}", num * num);
+// // // // }
+
+// // // fn get_age() {
+// // //     loop {
+// // //         let age = get_number("Enter your age (1-120):");
+
+// // //         if age >= 1 && age <= 120 {
+// // //             println!("Valid age: {}", age);
+// // //             break;
+// // //         } else {
+// // //             println!("Age must be between 1 and 120");
+// // //         }
+// // //     }
+// // // }
+
+// // // fn pause() {
+// // //     let mut temp = String::new();
+// // //     println!("\nPress Enter to continue...");
+// // //     stdin().read_line(&mut temp).unwrap();
+// // // }
+
+// // // fn main() {
+// // //     loop {
+// // //         show_menu();
+
+// // //         let choice = get_choice();
+
+// // //         match choice {
+// // //             1 => add_numbers(),
+// // //             2 => square_number(),
+// // //             3 => get_age(),
+// // //             4 => {
+// // //                 println!("Exiting...");
+// // //                 break;
+// // //             }
+// // //             _ => println!("Invalid choice"),
+// // //         }
+
+// // //         pause();
+// // //     }
+// // // }
+
+// // // use core::num;
+// // // use std::io::stdin;
+
+// // // use UserInput::Number;
+
+
+// // // enum UserInput {
+// // //         Number(i32),
+// // //         Exit,
+// // //     }
+
+// // // fn main() {
+// // //     let mut sum = 0;
+// // //     loop {
+// // //         match get_input() {
+// // //             UserInput::Number(n) => {
+// // //                 sum += n;
+// // //                 println!("added to the club");
+// // //             }
+// // //             UserInput::Exit => break,
+// // //         }
+// // //     }
+// // //     println!("sum {}", sum);
+// // // }
+
+// // // fn get_input() -> UserInput {
+
+// // //     loop {
+// // //         let mut input = String::new();
+// // //         println!("Enter the number: ");
+
+// // //         stdin().read_line(&mut input).unwrap();
+// // //         let input = input.trim();
+// // //         if input == "exit"{
+// // //             return UserInput::Exit;
+// // //         }
+
+// // //         match input.parse::<i32>(){
+// // //             Ok(num) => return UserInput::Number(num),
+// // //             Err(_) => {
+// // //                 println!("Invaliddddddd");
+// // //             }
+// // //         }
+// // //     }
+// // // }
+
+// // // use std::io::stdin;
+
+// // // fn main() {
+// // //     let mut account = Bank {
+// // //         name: "User".to_string(),
+// // //         account_id: "12345".to_string(),
+// // //         balance: 500.0,
+// // //     };
+
+// // //     loop {
+// // //         println!("Enter amount (or type 'exit'):");
+
+// // //         let mut input = String::new();
+// // //         stdin().read_line(&mut input).unwrap();
+// // //         let input = input.trim();
+
+// // //         if input == "exit" {
+// // //             println!("Exiting...");
+// // //             break;
+// // //         }
+
+// // //         let amount: f64 = match input.parse() {
+// // //             Ok(num) => num,
+// // //             Err(_) => {
+// // //                 println!("Invalid input. Try again.");
+// // //                 continue;
+// // //             }
+// // //         };
+
+// // //        
+// // //         let result = account.deposit(amount);
+
+// // //         match result {
+// // //             TransactionResult::Success { new_balance, amount } => {
+// // //                 println!(
+// // //                     "Transaction successful. Amount: {}, New Balance: {}",
+// // //                     amount, new_balance
+// // //                 );
+// // //             }
+// // //             TransactionResult::Failure(reason) => match reason {
+// // //                 FailureReason::InvalidAmount => {
+// // //                     println!("Invalid amount. Must be > 0");
+// // //                 }
+// // //                 FailureReason::InsufficientFunds => {
+// // //                     println!("Not enough balance.");
+// // //                 }
+// // //             },
+// // //         }
+// // //     }
+// // // }
+
+// // // struct Bank {
+// // //     name: String,
+// // //     account_id: String,
+// // //     balance: f64,
+// // // }
+
+// // // impl Bank {
+// // //     fn deposit(&mut self, amount: f64) -> TransactionResult {
+// // //         if amount <= 0.0 {
+// // //             return TransactionResult::Failure(FailureReason::InvalidAmount);
+// // //         }
+
+// // //         self.balance += amount;
+
+// // //         TransactionResult::Success {
+// // //             new_balance: self.balance,
+// // //             amount,
+// // //         }
+// // //     }
+
+// // //     fn withdraw(&mut self, amount: f64) -> TransactionResult {
+// // //         if amount <= 0.0 {
+// // //             return TransactionResult::Failure(FailureReason::InvalidAmount);
+// // //         }
+
+// // //         if self.balance < amount {
+// // //             return TransactionResult::Failure(FailureReason::InsufficientFunds);
+// // //         }
+
+// // //         self.balance -= amount;
+
+// // //         TransactionResult::Success {
+// // //             new_balance: self.balance,
+// // //             amount,
+// // //         }
+// // //     }
+// // // }
+
+// // // enum TransactionResult {
+// // //     Success { new_balance: f64, amount: f64 },
+// // //     Failure(FailureReason),
+// // // }
+
+// // // enum FailureReason {
+// // //     InvalidAmount,
+// // //     InsufficientFunds,
+// // // }
+
+// // // use std::io::stdin;
+
+// // // fn main() {
+// // //     let mut account = Bank {
+// // //         name: "User".to_string(),
+// // //         account_id: "12345".to_string(),
+// // //         balance: 500.0,
+// // //     };
+
+// // //     loop {
+// // //         println!("\nChoose action: deposit / withdraw / balance / exit");
+
+// // //         let mut action = String::new();
+// // //         stdin().read_line(&mut action).unwrap();
+// // //         let action = action.trim();
+
+// // //         match action {
+// // //             "deposit" => {
+// // //                 let amount = get_amount();
+// // //                 let result = account.deposit(amount);
+// // //                 handle_result(result);
+// // //             }
+
+// // //             "withdraw" => {
+// // //                 let amount = get_amount();
+// // //                 let result = account.withdraw(amount);
+// // //                 handle_result(result);
+// // //             }
+
+// // //             "balance" => {
+// // //                 println!("Current balance: {}", account.balance);
+// // //             }
+
+// // //             "exit" => {
+// // //                 println!("Exiting...");
+// // //                 break;
+// // //             }
+
+// // //             _ => {
+// // //                 println!("Invalid choice. Try again.");
+// // //             }
+// // //         }
+// // //     }
+// // // }
+
+
+// // // fn get_amount() -> f64 {
+// // //     loop {
+// // //         println!("Enter amount:");
+
+// // //         let mut input = String::new();
+// // //         stdin().read_line(&mut input).unwrap();
+
+// // //         match input.trim().parse::<f64>() {
+// // //             Ok(num) => return num,
+// // //             Err(_) => println!("Invalid number, try again"),
+// // //         }
+// // //     }
+// // // }
+
+// // // fn handle_result(result: TransactionResult) {
+// // //     match result {
+// // //         TransactionResult::Success { new_balance, amount } => {
+// // //             println!("Success! Amount: {}, New Balance: {}", amount, new_balance);
+// // //         }
+// // //         TransactionResult::Failure(reason) => match reason {
+// // //             FailureReason::InvalidAmount => println!("Amount must be > 0"),
+// // //             FailureReason::InsufficientFunds => println!("Not enough balance"),
+// // //         },
+// // //     }
+// // // }
+
+
+// // // struct Bank {
+// // //     name: String,
+// // //     account_id: String,
+// // //     balance: f64,
+// // // }
+
+// // // impl Bank {
+// // //     fn deposit(&mut self, amount: f64) -> TransactionResult {
+// // //         if amount <= 0.0 {
+// // //             return TransactionResult::Failure(FailureReason::InvalidAmount);
+// // //         }
+
+// // //         self.balance += amount;
+
+// // //         TransactionResult::Success {
+// // //             new_balance: self.balance,
+// // //             amount,
+// // //         }
+// // //     }
+
+// // //     fn withdraw(&mut self, amount: f64) -> TransactionResult {
+// // //         if amount <= 0.0 {
+// // //             return TransactionResult::Failure(FailureReason::InvalidAmount);
+// // //         }
+
+// // //         if self.balance < amount {
+// // //             return TransactionResult::Failure(FailureReason::InsufficientFunds);
+// // //         }
+
+// // //         self.balance -= amount;
+
+// // //         TransactionResult::Success {
+// // //             new_balance: self.balance,
+// // //             amount,
+// // //         }
+// // //     }
+// // // }
+// // // enum TransactionResult {
+// // //     Success { new_balance: f64, amount: f64 },
+// // //     Failure(FailureReason),
+// // // }
+
+// // // enum FailureReason {
+// // //     InvalidAmount,
+// // //     InsufficientFunds,
+// // // }
+
+// // // use std::io::stdin;
+
+
+// // // fn main() {
+// // //     loop {
+// // //         println!("\nChoose action: deposit");
+
+// // //          let mut action = String::new();
+// // //          stdin().read_line(&mut action).unwrap();
+// // //          let action = action.trim();
+
+// // //          println!("You typed: {}", action);
+// // //     };
+// // // }
+
+// // // use core::num;
+// // // use std::io::stdin;
+
+
+// // // fn check_number(num: i32) -> Option<i32> {
+// // //     if num > 0 {
+// // //         Some(num)
+// // //     } else {
+// // //         None
+// // //     }
+// // // }
+
+// // // fn main() {
+
+// // //     let mut number = String::new();
+// // //     println!("Enter number");
+// // //     stdin().read_line(&mut number).unwrap();
+
+// // //     if let Ok(num) = number.trim().parse::<i32>() {
+// // //         println!("Valid: {}", num);
+// // //     } else {
+// // //         println!("Invalid");
+// // //     }
+
+// // // }
+
+
+
+// // // fn main() {
+// // //     let mut a = String::from("hello ji");
+
+// // //     let b1 = &a;
+// // //     println!("{}", b1);
+
+// // //     let b2 = &mut a;
+// // // }
+
+// // use std::io::stdin;
+
+// // fn main() {
+    
+// //     loop {
+// //     let mut input = String::new();
+// //     println!("Enter a number bro:");
+
+// //     stdin().read_line(&mut input).unwrap();
+
+// //     let input = input.trim();
+
+// //     if input == "exit" {
+// //         println!("Exiting...");
+// //         break;
+// //     }
+
+// //     if let Ok(num) = input.parse::<i32>() {
+// //         if let Some(n) = check_number(num) {
+// //             println!("Valid {}", n);
 // //             break;
 // //         } else {
-// //             println!("Age must be between 1 and 120");
+// //             println!("Invalid (<= 0)");
 // //         }
+// //     } else {
+// //         println!("Invalid input");
 // //     }
 // // }
-
-// // fn pause() {
-// //     let mut temp = String::new();
-// //     println!("\nPress Enter to continue...");
-// //     stdin().read_line(&mut temp).unwrap();
 // // }
-
-// // fn main() {
-// //     loop {
-// //         show_menu();
-
-// //         let choice = get_choice();
-
-// //         match choice {
-// //             1 => add_numbers(),
-// //             2 => square_number(),
-// //             3 => get_age(),
-// //             4 => {
-// //                 println!("Exiting...");
-// //                 break;
-// //             }
-// //             _ => println!("Invalid choice"),
-// //         }
-
-// //         pause();
-// //     }
-// // }
-
-// // use core::num;
-// // use std::io::stdin;
-
-// // use UserInput::Number;
-
-
-// // enum UserInput {
-// //         Number(i32),
-// //         Exit,
-// //     }
-
-// // fn main() {
-// //     let mut sum = 0;
-// //     loop {
-// //         match get_input() {
-// //             UserInput::Number(n) => {
-// //                 sum += n;
-// //                 println!("added to the club");
-// //             }
-// //             UserInput::Exit => break,
-// //         }
-// //     }
-// //     println!("sum {}", sum);
-// // }
-
-// // fn get_input() -> UserInput {
-
-// //     loop {
-// //         let mut input = String::new();
-// //         println!("Enter the number: ");
-
-// //         stdin().read_line(&mut input).unwrap();
-// //         let input = input.trim();
-// //         if input == "exit"{
-// //             return UserInput::Exit;
-// //         }
-
-// //         match input.parse::<i32>(){
-// //             Ok(num) => return UserInput::Number(num),
-// //             Err(_) => {
-// //                 println!("Invaliddddddd");
-// //             }
-// //         }
-// //     }
-// // }
-
-// // use std::io::stdin;
-
-// // fn main() {
-// //     let mut account = Bank {
-// //         name: "User".to_string(),
-// //         account_id: "12345".to_string(),
-// //         balance: 500.0,
-// //     };
-
-// //     loop {
-// //         println!("Enter amount (or type 'exit'):");
-
-// //         let mut input = String::new();
-// //         stdin().read_line(&mut input).unwrap();
-// //         let input = input.trim();
-
-// //         if input == "exit" {
-// //             println!("Exiting...");
-// //             break;
-// //         }
-
-// //         let amount: f64 = match input.parse() {
-// //             Ok(num) => num,
-// //             Err(_) => {
-// //                 println!("Invalid input. Try again.");
-// //                 continue;
-// //             }
-// //         };
-
-// //        
-// //         let result = account.deposit(amount);
-
-// //         match result {
-// //             TransactionResult::Success { new_balance, amount } => {
-// //                 println!(
-// //                     "Transaction successful. Amount: {}, New Balance: {}",
-// //                     amount, new_balance
-// //                 );
-// //             }
-// //             TransactionResult::Failure(reason) => match reason {
-// //                 FailureReason::InvalidAmount => {
-// //                     println!("Invalid amount. Must be > 0");
-// //                 }
-// //                 FailureReason::InsufficientFunds => {
-// //                     println!("Not enough balance.");
-// //                 }
-// //             },
-// //         }
-// //     }
-// // }
-
-// // struct Bank {
-// //     name: String,
-// //     account_id: String,
-// //     balance: f64,
-// // }
-
-// // impl Bank {
-// //     fn deposit(&mut self, amount: f64) -> TransactionResult {
-// //         if amount <= 0.0 {
-// //             return TransactionResult::Failure(FailureReason::InvalidAmount);
-// //         }
-
-// //         self.balance += amount;
-
-// //         TransactionResult::Success {
-// //             new_balance: self.balance,
-// //             amount,
-// //         }
-// //     }
-
-// //     fn withdraw(&mut self, amount: f64) -> TransactionResult {
-// //         if amount <= 0.0 {
-// //             return TransactionResult::Failure(FailureReason::InvalidAmount);
-// //         }
-
-// //         if self.balance < amount {
-// //             return TransactionResult::Failure(FailureReason::InsufficientFunds);
-// //         }
-
-// //         self.balance -= amount;
-
-// //         TransactionResult::Success {
-// //             new_balance: self.balance,
-// //             amount,
-// //         }
-// //     }
-// // }
-
-// // enum TransactionResult {
-// //     Success { new_balance: f64, amount: f64 },
-// //     Failure(FailureReason),
-// // }
-
-// // enum FailureReason {
-// //     InvalidAmount,
-// //     InsufficientFunds,
-// // }
-
-// // use std::io::stdin;
-
-// // fn main() {
-// //     let mut account = Bank {
-// //         name: "User".to_string(),
-// //         account_id: "12345".to_string(),
-// //         balance: 500.0,
-// //     };
-
-// //     loop {
-// //         println!("\nChoose action: deposit / withdraw / balance / exit");
-
-// //         let mut action = String::new();
-// //         stdin().read_line(&mut action).unwrap();
-// //         let action = action.trim();
-
-// //         match action {
-// //             "deposit" => {
-// //                 let amount = get_amount();
-// //                 let result = account.deposit(amount);
-// //                 handle_result(result);
-// //             }
-
-// //             "withdraw" => {
-// //                 let amount = get_amount();
-// //                 let result = account.withdraw(amount);
-// //                 handle_result(result);
-// //             }
-
-// //             "balance" => {
-// //                 println!("Current balance: {}", account.balance);
-// //             }
-
-// //             "exit" => {
-// //                 println!("Exiting...");
-// //                 break;
-// //             }
-
-// //             _ => {
-// //                 println!("Invalid choice. Try again.");
-// //             }
-// //         }
-// //     }
-// // }
-
-
-// // fn get_amount() -> f64 {
-// //     loop {
-// //         println!("Enter amount:");
-
-// //         let mut input = String::new();
-// //         stdin().read_line(&mut input).unwrap();
-
-// //         match input.trim().parse::<f64>() {
-// //             Ok(num) => return num,
-// //             Err(_) => println!("Invalid number, try again"),
-// //         }
-// //     }
-// // }
-
-// // fn handle_result(result: TransactionResult) {
-// //     match result {
-// //         TransactionResult::Success { new_balance, amount } => {
-// //             println!("Success! Amount: {}, New Balance: {}", amount, new_balance);
-// //         }
-// //         TransactionResult::Failure(reason) => match reason {
-// //             FailureReason::InvalidAmount => println!("Amount must be > 0"),
-// //             FailureReason::InsufficientFunds => println!("Not enough balance"),
-// //         },
-// //     }
-// // }
-
-
-// // struct Bank {
-// //     name: String,
-// //     account_id: String,
-// //     balance: f64,
-// // }
-
-// // impl Bank {
-// //     fn deposit(&mut self, amount: f64) -> TransactionResult {
-// //         if amount <= 0.0 {
-// //             return TransactionResult::Failure(FailureReason::InvalidAmount);
-// //         }
-
-// //         self.balance += amount;
-
-// //         TransactionResult::Success {
-// //             new_balance: self.balance,
-// //             amount,
-// //         }
-// //     }
-
-// //     fn withdraw(&mut self, amount: f64) -> TransactionResult {
-// //         if amount <= 0.0 {
-// //             return TransactionResult::Failure(FailureReason::InvalidAmount);
-// //         }
-
-// //         if self.balance < amount {
-// //             return TransactionResult::Failure(FailureReason::InsufficientFunds);
-// //         }
-
-// //         self.balance -= amount;
-
-// //         TransactionResult::Success {
-// //             new_balance: self.balance,
-// //             amount,
-// //         }
-// //     }
-// // }
-// // enum TransactionResult {
-// //     Success { new_balance: f64, amount: f64 },
-// //     Failure(FailureReason),
-// // }
-
-// // enum FailureReason {
-// //     InvalidAmount,
-// //     InsufficientFunds,
-// // }
-
-// // use std::io::stdin;
-
-
-// // fn main() {
-// //     loop {
-// //         println!("\nChoose action: deposit");
-
-// //          let mut action = String::new();
-// //          stdin().read_line(&mut action).unwrap();
-// //          let action = action.trim();
-
-// //          println!("You typed: {}", action);
-// //     };
-// // }
-
-// // use core::num;
-// // use std::io::stdin;
-
 
 // // fn check_number(num: i32) -> Option<i32> {
+
 // //     if num > 0 {
 // //         Some(num)
 // //     } else {
@@ -390,145 +454,82 @@
 // // }
 
 // // fn main() {
+// //     let s = String::from("add");
 
-// //     let mut number = String::new();
-// //     println!("Enter number");
-// //     stdin().read_line(&mut number).unwrap();
+// //     let op1 = s;
+// //     let op2 = op1.clone();
 
-// //     if let Ok(num) = number.trim().parse::<i32>() {
-// //         println!("Valid: {}", num);
-// //     } else {
-// //         println!("Invalid");
-// //     }
-
+// //     println!("{}", op2);
 // // }
 
-
+// // fn print_op(op: &str) {
+// //     println!("{}", op);
+// // }
 
 // // fn main() {
-// //     let mut a = String::from("hello ji");
+// //     let op = String::from("add");
 
-// //     let b1 = &a;
-// //     println!("{}", b1);
+// //     let r1 = &op;
+// //     let r2 = &op;
 
-// //     let b2 = &mut a;
+// //     print_op(r1);
+// //     print_op(r2);
 // // }
 
-// use std::io::stdin;
+// // fn main() {
+// //     let mut s = String::from("hi");
 
-// fn main() {
-    
-//     loop {
-//     let mut input = String::new();
-//     println!("Enter a number bro:");
+// //     let r1 = &s;
+// //     let r2 = &s;
 
-//     stdin().read_line(&mut input).unwrap();
+// //     println!("{}", r1);
+// //     println!("{}", r2);
 
-//     let input = input.trim();
+// //     let r3 = &mut s;
 
-//     if input == "exit" {
-//         println!("Exiting...");
-//         break;
-//     }
+// // }
 
-//     if let Ok(num) = input.parse::<i32>() {
-//         if let Some(n) = check_number(num) {
-//             println!("Valid {}", n);
-//             break;
-//         } else {
-//             println!("Invalid (<= 0)");
-//         }
-//     } else {
-//         println!("Invalid input");
-//     }
-// }
-// }
+// // struct Book {
+// //     title: String,
+// //     page_no: u32,
+// //     is_read: bool,
+// // }
 
-// fn check_number(num: i32) -> Option<i32> {
+// // let my_book = Book {
+// //     title: String::from("The hobbit"),
+// //     pages: 310,
+// //     is_read: bool,
+// // }
 
-//     if num > 0 {
-//         Some(num)
-//     } else {
-//         None
-//     }
-// }
-
-// fn main() {
-//     let s = String::from("add");
-
-//     let op1 = s;
-//     let op2 = op1.clone();
-
-//     println!("{}", op2);
-// }
-
-// fn print_op(op: &str) {
-//     println!("{}", op);
-// }
-
-// fn main() {
-//     let op = String::from("add");
-
-//     let r1 = &op;
-//     let r2 = &op;
-
-//     print_op(r1);
-//     print_op(r2);
-// }
-
-// fn main() {
-//     let mut s = String::from("hi");
-
-//     let r1 = &s;
-//     let r2 = &s;
-
-//     println!("{}", r1);
-//     println!("{}", r2);
-
-//     let r3 = &mut s;
-
-// }
-
-// struct Book {
-//     title: String,
-//     page_no: u32,
-//     is_read: bool,
-// }
-
-// let my_book = Book {
-//     title: String::from("The hobbit"),
-//     pages: 310,
-//     is_read: bool,
-// }
-
-// println!("{}", my_book.title);
+// // println!("{}", my_book.title);
 
 
-// struct Student {
-//     name: String,
-//     age: u32,
-//     grade: char,
-// }
+// // struct Student {
+// //     name: String,
+// //     age: u32,
+// //     grade: char,
+// // }
 
-// impl Student {
-//     fn show(&self) {
-//         println!("{}, {}, {}", self.name, self.age, self.grade);
-//     }
-// }
+// // impl Student {
+// //     fn show(&self) {
+// //         println!("{}, {}, {}", self.name, self.age, self.grade);
+// //     }
+// // }
 
-// fn main() {
+// // fn main() {
 
-//     let student = Student {
+// //     let student = Student {
         
-//         name: String::from("mohan"),
-//         age: 23,
-//         grade: 'B',
-//     };  
-//     // println!(" {}, {}, {}", student.name, student.age, student.grade);4
-//     student.show();
-// }
+// //         name: String::from("mohan"),
+// //         age: 23,
+// //         grade: 'B',
+// //     };  
+// //     // println!(" {}, {}, {}", student.name, student.age, student.grade);4
+// //     student.show();
+// // }
 
 
+// #[derive(Debug)]
 // struct Car {
 //     brand: String,
 //     speed: u32,
@@ -564,61 +565,169 @@
 //     car.show();
 
 //     let car2 = Car::new() {
-//         println!("{}", car2)
+//         println!("{:?}", car2)
 //     }
 // }
 
-// enum Weather {
-//     Sunny,
-//     Rainy,
-//     Cloudy(u32),
+// // enum Weather {
+// //     Sunny,
+// //     Rainy,
+// //     Cloudy(u32),
+// // }
+
+// // fn main() {
+// //     let season = Weather::Cloudy(4);
+
+// //     match season {
+// //         Weather::Sunny => println!("this is sunnyy: "),
+// //         Weather::Rainy => println!("rainnyy"),
+// //         Weather::Cloudy(hours) => println!("clouds for {} hours", hours),
+// //     };
+// // }
+
+
+// // enum Vehicle {
+// //     Bike,
+// //     Car,
+// //     Truck(u32),
+// // }
+
+// // fn main() {
+// //     let weight = Vehicle::Truck(2000);
+
+// //     match weight {
+// //         Vehicle::Bike => println!("bike is around 150kg"),
+// //         Vehicle::Car => println!("car is around 500kg"),
+// //         Vehicle::Truck(kilo) => println!("truck is around {} kg", kilo),
+// //     };
+// // }
+
+// // trait MakeSound {
+// //     fn sound(&self) -> String;
+// // }
+
+// // struct Dog {
+// //     name: String,
+// // }
+
+// // impl MakeSound for Dog {
+// //     fn sound(&self) -> String {
+// //         format!("woof")
+// //     }
+// // }
+
+// // fn main() {
+// //     let dog = Dog {
+// //         name: String::from("jimmy")
+// //     };
+
+// //     println!("dog barks like: {}", dog.sound());
+// // }
+
+
+// // fn find_user(id: u32) -> Option<String> {
+// //     if id == 1 {
+// //         Some(String::from("Found User"))
+// //     } else {
+// //         None
+// //     }
+// // }
+
+// // fn main() {
+// //     let user = find_user(2);
+
+// //     match user {
+// //         Some(name) => println!("Found: {}", name),
+// //         None => println!("no user found"),
+// //     };
+// // }
+
+// // use core::num;
+
+
+// // // fn main() {
+// // //     let numbers = vec![1, 2, 3, 4, 5];
+
+// // //     let doubled: Vec<i32> = numbers.iter().map(|x| x * 2).collect();
+
+// // //     println!("{:?}", doubled);
+// // // }
+
+
+// // fn main() {
+// //     let numbers = vec![1, 2, 3, 4, 5, 6];
+// //     let doubled: Vec<i32> = numbers.iter().filter(|x| **x > 3).collect();
+
+// //     println!("{:?}", doubled);
+
+// // }
+
+// // use std::collections::HashMap;
+
+// // fn main() {
+// //     let fruits = vec!["apple", "banana", "apple", "apple", "banana", "cherry"];
+// //     let mut counts: HashMap<&str, i32> = HashMap::new();
+
+// //     for fruit in fruits {
+// //         let count = counts.entry(fruit).or_insert(0);
+// //         *count += 1;
+// //     }
+
+// //     println!("{:?}", counts);
+// // }
+
+
+// // #[derive(Debug)]
+// struct Car {
+//     brand: String,
+//     speed: u32,
+//     is_running: bool,
 // }
 
 // fn main() {
-//     let season = Weather::Cloudy(4);
-
-//     match season {
-//         Weather::Sunny => println!("this is sunnyy: "),
-//         Weather::Rainy => println!("rainnyy"),
-//         Weather::Cloudy(hours) => println!("clouds for {} hours", hours),
+//     let car = Car {
+//         brand: String::from("mitsubishi"),
+//         speed: 120,
+//         is_running: false,
 //     };
+
+//     println!("{}", car);
 // }
 
 
-// enum Vehicle {
-//     Bike,
-//     Car,
-//     Truck(u32),
+// fn largest<T: PartialOrd>(a: T, b: T) -> T {
+//     if a > b { a } else { b }
 // }
 
 // fn main() {
-//     let weight = Vehicle::Truck(2000);
+//     let int_result = largest(10, 25);
+//     println!("Largest int: {}", int_result);
 
-//     match weight {
-//         Vehicle::Bike => println!("bike is around 150kg"),
-//         Vehicle::Car => println!("car is around 500kg"),
-//         Vehicle::Truck(kilo) => println!("truck is around {} kg", kilo),
-//     };
+//     let float_result = largest(3.5, 2.1);
+//     println!("Largest float: {}", float_result);
 // }
 
-trait MakeSound {
-    fn sound(&self) -> String;
-}
 
-struct Dog {
-    name: String,
-}
+//  LETS START DSA
 
-impl MakeSound for Dog {
-    fn sound(&self) -> String {
-        format!("woof")
-    }
-}
 
 fn main() {
-    let dog = Dog {
-        name: String::from("jimmy")
-    };
+    let arr = [3, 7, 2, 9, 5];
 
-    println!("dog barks like: {}", dog.sound());
+    let mut max = arr[0];
+
+    // for i in 0..arr.len() {
+    //     if arr[i] > max {
+    //         max = arr[i];
+    //     }
+    // }
+    // println!("{}", max);
+
+    for &val in &arr {
+        if val > max {
+            max = val;
+        }
+    }
+
+    println!("{}", max);
 }
